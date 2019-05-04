@@ -27,17 +27,17 @@ public class Book {
     }
 
     public void setAuthor(String author) {
-        do {
-
-            if ((author.charAt(0) != 'X')  || (author.charAt(0) != 'x') ) {
-            this.author = author;
-            } else {
-                System.out.println("Sorry the application does not allow author's"
-                        + " name that begin with X, the orginal author's" +
-                        this.author + " will remain");
+        if ((author.charAt(0) == 'X') || (author.charAt(0) == 'x')) {
+                    
+                 System.out.println("Sorry the application does not allow author's"
+                        + " name that begin with X, the orginal author's"
+                        + this.author + " will remain");
+                
+            } 
+            else {
+                
+               this.author = author;
             }
-        } while (testingCapacity != 1);
-        this.author = author;
     }
 
     public void setTitle(String myTitle) {
@@ -47,14 +47,15 @@ public class Book {
     public void displayBookDetails(){
         System.out.println("Title - " + this.title);
         System.out.println("Author - " + this.author);
-        System.out.println("Book ID - " + this.bookID);
+        System.out.println("Book ID - " + generateBookID());
         System.out.println("=============================");
 
 
     }
     private String generateBookID(){
-        
-        
+        StringBuilder buildID = new StringBuilder(String.valueOf(id));
+        buildID.append(author.charAt(2));
+        this.bookID = buildID.toString();
         return bookID;
     }
 }
