@@ -45,8 +45,8 @@ public class Book {
     }
     
     public void displayBookDetails(){
-        System.out.println("Title - " + this.title);
-        System.out.println("Author - " + this.author);
+        System.out.println("Title - " + getTitle());
+        System.out.println("Author - " + getAuthor());
         System.out.println("Book ID - " + generateBookID());
         System.out.println("=============================");
 
