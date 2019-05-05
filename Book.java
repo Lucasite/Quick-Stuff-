@@ -16,7 +16,7 @@ public class Book {
     public Book(String author, String myTitle) {
         this.author = author;
         this.title = myTitle;
-        id++; // It also creates part of the book ID
+        bookID = generateBookID();
         
     }
     //Accessor for the author variable
@@ -56,9 +56,9 @@ public class Book {
     //title and author
     //Outputs - A printout showing the title, author and the bookID
     public void displayBookDetails(){
-        System.out.println("Title - " + getTitle());
-        System.out.println("Author - " + getAuthor());
-        System.out.println("Book ID - " + generateBookID());
+        System.out.println("Title - " + this.title);
+        System.out.println("Author - " + this.author);
+        System.out.println("Book ID - " + this.bookID);
         System.out.println("=============================");
 
 
@@ -69,7 +69,7 @@ public class Book {
     //Input - the method recieves nothing but uses the author and id varible
     //Output - a generated book ID.
     private String generateBookID(){
-        StringBuilder buildID = new StringBuilder(String.valueOf(id));
+        StringBuilder buildID = new StringBuilder(String.valueOf(id++));
         buildID.append(author.charAt(2));
         this.bookID = buildID.toString();
         return bookID;
